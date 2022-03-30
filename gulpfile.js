@@ -6,6 +6,7 @@ const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
+var ghPages = require('gulp-gh-pages');
 
 
 gulp.task('clean', async function(){
@@ -26,7 +27,9 @@ gulp.task('scss', function() {
 gulp.task('css', function(){
   return gulp.src([
     'node_modules/normalize.css/normalize.css',
-    'node_modules/slick-carousel/slick/slick.css'
+    'node_modules/slick-carousel/slick/slick.css',
+    'node_modules/animate.css/animate.css',
+    
   ])
   .pipe(concat('_libs.scss'))
   .pipe(gulp.dest('app/scss'))
@@ -87,3 +90,8 @@ gulp.task('watch', function(){
 gulp.task('build', gulp.series('clean', 'export'))
 
 gulp.task('default', gulp.parallel('css', 'scss', 'js', 'browser-sync', 'watch'));
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});

@@ -1,6 +1,5 @@
 let monthA = 'January,February,March,April,May,June,July,August,September,October,November,December'.split(',');
 let todayDate = new Date();
-let currYear = todayDate.getFullYear();
 let currMonth = monthA[todayDate.getMonth()];
 let currDay = todayDate.getDate();
 
