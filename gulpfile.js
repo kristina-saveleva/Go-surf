@@ -8,6 +8,10 @@ const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 var ghPages = require('gulp-gh-pages');
 
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('clean', async function(){
   del.sync('dist')
@@ -90,8 +94,3 @@ gulp.task('watch', function(){
 gulp.task('build', gulp.series('clean', 'export'))
 
 gulp.task('default', gulp.parallel('css', 'scss', 'js', 'browser-sync', 'watch'));
-
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
-    .pipe(ghPages());
-});
