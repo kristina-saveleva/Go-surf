@@ -14,7 +14,7 @@ $('.slider-dotshead').slick({
     asNavFor: '.header__slider'
 });
     
-$('.serf-slider').slick({
+$('.surf-slider').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
     prevArrow: '<img class="slider-arrows slider-arrows__left" src="img/arrows-left.svg" alt=""></img>', 
@@ -26,7 +26,7 @@ $('.slider-map').slick({
     slidesToShow: 9,
     slidesToScroll: 1,
     arrows: false,
-    asNavFor: '.serf-slider',
+    asNavFor: '.surf-slider',
     focusOnSelect: true
 })
 
